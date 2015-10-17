@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>连连看</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<style>
+	#stage {
+		width: 310px;
+		height: 470px;
+		background: #EEE;
+		margin: 100px auto 0;
+		position: relative;
+	}
+	#stage .tile {
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		float: left;
+		-webkit-transition: .4s;
+		transition: .4s;
+		-webkit-animation: tile .3s;
+		animation: tile .3s;
+		z-index: 1;
+	}
+	#stage .tile.selected {
+		outline: 5px solid rgba(0,0,0,.5);
+		outline-offset: 3px;
+	}
+	.tile.red { background-color: red; }
+	.tile.green { background-color: green; }
+	.tile.blue { background-color: blue; }
+	.tile.pink { background-color: pink; }
+	.tile.black { background-color: black; }
+	.tile.killed { background: none; pointer-events: none; transform: scale(1.5); opacity: 0 }
+	canvas {
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
+
+	@-webkit-keyframes tile {
+	    from { transform: scale(.5); opacity: 0 }
+	}
+	@keyframes tile {
+	    from { transform: scale(.5); opacity: 0 }
+	}
+	</style>
+</head>
+<body>
+
+<div id="stage"></div>
+
+<div id="time"></div>
+
+<script src="llk.js"></script>
+</body>
+</html>
